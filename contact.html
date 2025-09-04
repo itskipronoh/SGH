@@ -3,23 +3,15 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Contact Us - Sophy's G        <div class="container-fluid bg-breadcrumb py-5">
-            <div class="container text-center py-5">
-                <h3 class="text-white display-3 mb-4">Contact Us</h3>
-                <p class="text-white mb-0">Get in touch with Sophy's Glam Hub today</p>
-            </div>
-        </div>itle>
+        <title>Contact Us - Sophy's Glam Hub</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="contact sophys glam hub, location, phone, book appointment" name="keywords">
-        <meta content="Get in touch with Sophy's Glam Hub for appointments and inquiries" name="description">
-
-        <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="img/logo.jpg">
+        <meta content="Contact Sophy's Glam Hub for beauty appointments, location at Comet Mall Nairobi, call +254 711 862 041" name="description">
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"> 
 
         <!-- Icon Font Stylesheet -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
@@ -41,10 +33,104 @@
     <body>
 
         <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-grow text-primary" role="status"></div>
         </div>
         <!-- Spinner End -->
+
+
+        <!-- Topbar Start -->
+        <div class="container-fluid topbar bg-light px-0">
+            <div class="row gx-0 align-items-center">
+                <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                    <div class="d-flex flex-wrap">
+                        <div class="border-end border-primary pe-3">
+                            <a href="#" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+                        </div>
+                        <div class="ps-3">
+                            <a href="mailto:sophyglamhub@gmail.com" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>sophyglamhub@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <div class="d-flex border-end border-primary pe-3">
+                            <a class="btn p-0 text-primary me-3" href="https://instagram.com/sophys_glam_hub_"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="d-flex ps-3">
+                            <a href="tel:+254711862041" class="text-muted small ms-3"><i class="fas fa-phone text-primary me-2"></i>+254 711 862 041</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+
+
+        <!-- Navbar start -->
+        <div class="container-fluid nav-bar bg-light">
+            <div class="container">
+                <div class="container px-0">
+                    <nav class="navbar navbar-light navbar-expand-xl">
+                        <a href="index.html" class="navbar-brand d-flex align-items-center">
+                            <img src="img/logo.jpg" alt="Sophy's Glam Hub">
+                            <h1 class="text-primary mb-0">Sophy's Glam Hub</h1>
+                        </a>
+                        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                            <span class="fa fa-bars text-primary"></span>
+                        </button>
+                        <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
+                            <div class="navbar-nav mx-auto border-top">
+                                <a href="index.html" class="nav-item nav-link">Home</a>
+                                <a href="about.html" class="nav-item nav-link">About</a>
+                                <a href="service.html" class="nav-item nav-link">Services</a>
+                                <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                                <a href="appointment.html" class="nav-item nav-link">Appointment</a>
+                                <a href="contact.html" class="nav-item nav-link active">Contact Us</a>
+                            </div>
+                            <div class="d-flex align-items-center flex-nowrap pt-xl-0">
+                                <button class="btn-search btn btn-primary btn-primary-outline-0 rounded-circle btn-lg-square" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
+                                <a href="appointment.html" class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-4 ms-4">Book Appointment</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center bg-primary">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="btn bg-light border nput-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End -->
+
+
+        <!-- Header Start -->
+        <div class="container-fluid bg-breadcrumb py-5">
+            <div class="container text-center py-5">
+                <h3 class="text-white display-3 mb-4">Contact Us</h3>
+                <p class="text-white mb-0">Get in touch with Sophy's Glam Hub today</p>
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+        <!-- Contact Start -->
 
 
         <!-- Navbar start -->
