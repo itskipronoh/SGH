@@ -694,3 +694,42 @@
     background: var(--bs-dark) !important;
 }
 /*** copyright end ***/
+
+/*** Instagram Showcase Start ***/
+.instagram-item {
+    transition: transform 0.3s ease;
+}
+
+.instagram-item:hover {
+    transform: scale(1.05);
+}
+
+.instagram-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-item:hover .instagram-overlay {
+    opacity: 1;
+}
+
+.instagram-overlay .btn {
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    background: #e91e63 !important;
+    border: none !important;
+}
+
+.instagram-item:hover .instagram-overlay .btn {
+    transform: scale(1);
+    background: #ad1457 !important;
+}
+
+.instagram-overlay small {
+    font-weight: 500;
+    font-size: 0.75rem;
+    border-radius: 15px !important;
+    backdrop-filter: blur(5px);
+}
+/*** Instagram Showcase End ***/
