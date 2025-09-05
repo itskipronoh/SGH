@@ -33,43 +33,34 @@
     <body>
 
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
             <div class="spinner-grow text-primary" role="status"></div>
         </div>
         <!-- Spinner End -->
 
 
-        <!-- Topbar Start -->
-        <div class="container-fluid topbar bg-light px-0">
-            <div class="row gx-0 align-items-center">
-                <div class="col-lg-8 text-center text-lg-start mb-lg-0">
-                    <div class="d-flex flex-wrap">
-                        <div class="border-end border-primary pe-3">
-                            <a href="#" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+        <!-- Navbar start -->
+        <div class="container-fluid sticky-top px-0">
+            <div class="container-fluid topbar d-none d-lg-block">
+                <div class="container px-0">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="d-flex flex-wrap">
+                                <a href="#" class="me-4 text-light"><i class="fas fa-map-marker-alt text-primary me-2"></i>Comet Mall, Anniversary Towers, Nairobi</a>
+                                <a href="tel:+254711862041" class="me-4 text-light"><i class="fas fa-phone-alt text-primary me-2"></i>+254 711 862 041</a>
+                                <a href="mailto:sophyglamhub@gmail.com" class="text-light"><i class="fas fa-envelope text-primary me-2"></i>sophyglamhub@gmail.com</a>
+                            </div>
+
                         </div>
-                        <div class="ps-3">
-                            <a href="mailto:sophyglamhub@gmail.com" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>sophyglamhub@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 text-center text-lg-end">
-                    <div class="d-flex align-items-center justify-content-end">
-                        <div class="d-flex border-end border-primary pe-3">
-                            <a class="btn p-0 text-primary me-3" href="https://instagram.com/sophys_glam_hub_"><i class="fab fa-instagram"></i></a>
-                        </div>
-                        <div class="d-flex ps-3">
-                            <a href="tel:+254711862041" class="text-muted small ms-3"><i class="fas fa-phone text-primary me-2"></i>+254 711 862 041</a>
+                        <div class="col-lg-4">
+                            <div class="d-flex align-items-center justify-content-end">
+                                <a href="https://instagram.com/sophys_glam_hub_" class="btn-square border rounded-circle nav-fill" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Topbar End -->
-
-
-        <!-- Navbar start -->
-        <div class="container-fluid nav-bar bg-light">
-            <div class="container">
+            <div class="container-fluid bg-light">
                 <div class="container px-0">
                     <nav class="navbar navbar-light navbar-expand-xl">
                         <a href="index.html" class="navbar-brand d-flex align-items-center">
@@ -108,6 +99,26 @@
                         <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End -->
+
+
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                     <div class="modal-body d-flex align-items-center bg-primary">
                         <div class="input-group w-75 mx-auto d-flex">
                             <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
@@ -131,11 +142,9 @@
 
 
         <!-- Service Start -->
-
-
-        <!-- Navbar start -->
-        <div class="container-fluid sticky-top px-0">
-            <div class="container-fluid topbar d-none d-lg-block">
+        <div class="container-fluid service py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <div class="container px-0">
                     <div class="row align-items-center">
                         <div class="col-lg-8">
