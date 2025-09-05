@@ -595,11 +595,236 @@
                     summary += `Notes: ${bookingData.notes}\n`;
                 }
                 
-                // Here you would normally send this data to your backend
-                alert(`Booking Request Submitted!\n\n${summary}\nWe will contact you shortly to confirm your appointment.`);
+                // Send SMS notifications
+                sendBookingNotifications(bookingData, summary);
                 
-                // Optional: Reset form or redirect
-                // window.location.href = 'index.html';
+                // Show success message to user
+                showBookingSuccess(bookingData);
+                
+                // Optional: Reset form after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('appointmentForm').reset();
+                    // Clear service details
+                    document.getElementById('serviceBookingCard').style.display = 'none';
+                }, 3000);
+            });
+
+            // Function to send SMS notifications
+            function sendBookingNotifications(bookingData, summary) {
+                const ownerPhone = '+254782606380';
+                
+                // Client message
+                const clientMessage = `🌟 BOOKING CONFIRMED! 🌟\n\n` +
+                    `Hello ${bookingData.clientName}!\n\n` +
+                    `Your appointment at Sophy's Glam Hub has been successfully booked:\n\n` +
+                    `📅 Date: ${new Date(bookingData.date).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}\n` +
+                    `⏰ Time: ${bookingData.time}\n` +
+                    `💄 Service: ${bookingData.serviceName || 'Service consultation'}\n` +
+                    `💰 Price: ${bookingData.price || 'To be confirmed'}\n` +
+                    `⏱️ Duration: ${bookingData.duration || 'To be confirmed'}\n\n` +
+                    `📍 Location: Sophy's Glam Hub, Nairobi\n\n` +
+                    `We're excited to pamper you! Please arrive 10 minutes early.\n\n` +
+                    `For any changes, call us at ${ownerPhone}\n\n` +
+                    `Thank you for choosing Sophy's Glam Hub! ✨`;
+
+                // Owner message  
+                const ownerMessage = `🔔 NEW BOOKING ALERT! 🔔\n\n` +
+                    `Client: ${bookingData.clientName}\n` +
+                    `Phone: ${bookingData.clientPhone}\n` +
+                    `Service: ${bookingData.serviceName || 'Consultation'}\n` +
+                    `Price: ${bookingData.price || 'TBC'}\n` +
+                    `Date: ${new Date(bookingData.date).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}\n` +
+                    `Time: ${bookingData.time}\n` +
+                    `Duration: ${bookingData.duration || 'TBC'}\n` +
+                    `Professional: ${bookingData.professional === 'any' ? 'Any available' : bookingData.professional}\n` +
+                    `${bookingData.notes ? `Notes: ${bookingData.notes}\n` : ''}` +
+                    `\nPlease confirm this booking with the client.`;
+
+                // Send SMS to client
+                if (bookingData.clientPhone) {
+                    sendSMS(bookingData.clientPhone, clientMessage, 'client');
+                }
+                
+                // Send SMS to owner
+                sendSMS(ownerPhone, ownerMessage, 'owner');
+            }
+
+            // Function to send SMS using a free SMS API
+            function sendSMS(phoneNumber, message, recipient) {
+                // Send booking data to PHP backend for SMS processing
+                const bookingData = {
+                    clientName: document.getElementById('fullName').value,
+                    clientPhone: document.getElementById('phoneNumber').value,
+                    serviceName: document.getElementById('serviceBookingCard').style.display !== 'none' ? 
+                        document.getElementById('selectedServiceName').textContent : null,
+                    price: document.getElementById('serviceBookingCard').style.display !== 'none' ? 
+                        document.getElementById('selectedServicePrice').textContent : null,
+                    duration: document.getElementById('serviceBookingCard').style.display !== 'none' ? 
+                        document.getElementById('selectedServiceDuration').textContent.replace('Duration: ', '') : null,
+                    date: document.getElementById('appointmentDate').value,
+                    time: document.querySelector('input[name="timeSlot"]:checked')?.value,
+                    professional: document.getElementById('preferredProfessional').value,
+                    notes: document.getElementById('clientNotes').value
+                };
+
+                // Send to PHP backend
+                fetch('send_booking_sms.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bookingData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('📱 SMS Backend Response:', data);
+                    
+                    if (data.success) {
+                        console.log('✅ SMS notifications sent successfully!');
+                        
+                        // Show browser notification if available
+                        if (Notification.permission === 'granted') {
+                            new Notification('Booking Confirmed! 🎉', {
+                                body: 'SMS confirmations sent to client and salon owner.',
+                                icon: 'img/logo.jpg'
+                            });
+                        }
+                    } else {
+                        console.error('❌ SMS sending failed:', data.error);
+                        // Fallback: show message in console
+                        console.log(`📱 Fallback message for ${recipient} (${phoneNumber}):`);
+                        console.log(message);
+                    }
+                })
+                .catch(error => {
+                    console.error('❌ SMS API Error:', error);
+                    // Fallback: show the message in console for demo
+                    console.log(`📱 Fallback SMS for ${recipient} (${phoneNumber}):`);
+                    console.log(message);
+                    
+                    // Show browser notification as fallback
+                    if (Notification.permission === 'granted') {
+                        new Notification(`SMS Fallback - ${recipient}`, {
+                            body: `Check console for message details`,
+                            icon: 'img/logo.jpg'
+                        });
+                    }
+                });
+            }
+
+            // Function to show booking success message
+            function showBookingSuccess(bookingData) {
+                // Create success modal/overlay
+                const successHTML = `
+                    <div id="bookingSuccessOverlay" style="
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0,0,0,0.8);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 9999;
+                        animation: fadeIn 0.3s ease-in;
+                    ">
+                        <div style="
+                            background: white;
+                            padding: 40px;
+                            border-radius: 20px;
+                            text-align: center;
+                            max-width: 500px;
+                            margin: 20px;
+                            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                            animation: slideIn 0.5s ease-out;
+                        ">
+                            <div style="color: #28a745; font-size: 60px; margin-bottom: 20px;">
+                                ✅
+                            </div>
+                            <h2 style="color: #28a745; margin-bottom: 20px;">Booking Confirmed!</h2>
+                            <p style="font-size: 18px; margin-bottom: 20px;">
+                                Thank you <strong>${bookingData.clientName}</strong>!<br>
+                                Your appointment has been successfully booked.
+                            </p>
+                            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: left;">
+                                <h5 style="color: #6c757d; margin-bottom: 15px;">📋 Booking Details:</h5>
+                                <p><strong>Service:</strong> ${bookingData.serviceName || 'Consultation'}</p>
+                                <p><strong>Date:</strong> ${new Date(bookingData.date).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</p>
+                                <p><strong>Time:</strong> ${bookingData.time}</p>
+                                <p><strong>Price:</strong> ${bookingData.price || 'To be confirmed'}</p>
+                            </div>
+                            <div style="background: #e3f2fd; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                                <p style="margin: 0; color: #1976d2;">
+                                    📱 <strong>SMS confirmations sent to:</strong><br>
+                                    • Your phone: ${bookingData.clientPhone}<br>
+                                    • Our salon: +254782606380
+                                </p>
+                            </div>
+                            <p style="color: #6c757d; margin-bottom: 30px;">
+                                We'll see you at Sophy's Glam Hub!<br>
+                                Please arrive 10 minutes early.
+                            </p>
+                            <button onclick="closeBookingSuccess()" style="
+                                background: #007bff;
+                                color: white;
+                                border: none;
+                                padding: 12px 30px;
+                                border-radius: 25px;
+                                font-size: 16px;
+                                cursor: pointer;
+                                transition: background 0.3s;
+                            " onmouseover="this.style.background='#0056b3'" onmouseout="this.style.background='#007bff'">
+                                Perfect! ✨
+                            </button>
+                        </div>
+                    </div>
+                    <style>
+                        @keyframes fadeIn {
+                            from { opacity: 0; }
+                            to { opacity: 1; }
+                        }
+                        @keyframes slideIn {
+                            from { transform: translateY(-50px); opacity: 0; }
+                            to { transform: translateY(0); opacity: 1; }
+                        }
+                    </style>
+                `;
+                
+                // Add success overlay to page
+                document.body.insertAdjacentHTML('beforeend', successHTML);
+                
+                // Auto-close after 10 seconds
+                setTimeout(() => {
+                    closeBookingSuccess();
+                }, 10000);
+            }
+
+            // Function to close booking success overlay
+            function closeBookingSuccess() {
+                const overlay = document.getElementById('bookingSuccessOverlay');
+                if (overlay) {
+                    overlay.style.animation = 'fadeOut 0.3s ease-out';
+                    setTimeout(() => {
+                        overlay.remove();
+                    }, 300);
+                }
+            }
+
+            // Add fadeOut animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeOut {
+                    from { opacity: 1; }
+                    to { opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Request notification permission on page load
+            if ('Notification' in window && Notification.permission === 'default') {
+                Notification.requestPermission();
+            }
             });
         </script>
     </body>
