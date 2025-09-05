@@ -22,12 +22,52 @@
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+
+        <style>
+            .booking-for-option {
+                cursor: pointer;
+                transition: all 0.3s ease;
+                border: 2px solid #e9ecef;
+            }
+            .booking-for-option:hover {
+                border-color: var(--bs-primary);
+                background-color: rgba(var(--bs-primary-rgb), 0.1);
+            }
+            .booking-for-option.selected {
+                border-color: var(--bs-primary);
+                background-color: rgba(var(--bs-primary-rgb), 0.1);
+            }
+            .time-slot {
+                cursor: pointer;
+                transition: all 0.2s ease;
+                border: 2px solid #e9ecef;
+            }
+            .time-slot:hover {
+                border-color: var(--bs-primary);
+                background-color: rgba(var(--bs-primary-rgb), 0.1);
+            }
+            .time-slot.selected {
+                border-color: var(--bs-primary);
+                background-color: var(--bs-primary);
+                color: white;
+            }
+            .service-display {
+                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                border-left: 4px solid var(--bs-primary);
+            }
+            .form-floating > label {
+                color: #6c757d;
+            }
+            .form-control:focus {
+                border-color: var(--bs-primary);
+                box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
+            }
+        </style>
     </head>
 
     <body>
@@ -37,7 +77,6 @@
             <div class="spinner-grow text-primary" role="status"></div>
         </div>
         <!-- Spinner End -->
-
 
         <!-- Navbar start -->
         <div class="container-fluid sticky-top px-0">
@@ -50,7 +89,6 @@
                                 <a href="tel:+254711862041" class="me-4 text-light"><i class="fas fa-phone-alt text-primary me-2"></i>+254 711 862 041</a>
                                 <a href="mailto:sophyglamhub@gmail.com" class="text-light"><i class="fas fa-envelope text-primary me-2"></i>sophyglamhub@gmail.com</a>
                             </div>
-
                         </div>
                         <div class="col-lg-4">
                             <div class="d-flex align-items-center justify-content-end">
@@ -90,13 +128,12 @@
         </div>
         <!-- Navbar End -->
 
-
         <!-- Modal Search Start -->
         <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content rounded-0">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                        <h4 class="modal-title mb-0" id="exampleModalLabel">Search by keyword</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body d-flex align-items-center">
@@ -110,94 +147,173 @@
         </div>
         <!-- Modal Search End -->
 
-
         <!-- Header Start -->
         <div class="container-fluid bg-breadcrumb py-5">
             <div class="container text-center py-5">
-                <h3 class="text-white display-3 mb-4">Book Appointment</h3>
-                <p class="text-white mb-0">Schedule your beauty transformation with us</p>
+                <h3 class="text-white display-3 mb-4">Book appointment</h3>
+                <p class="text-white mb-0" id="headerSubtitle">
+                    <span id="serviceTitle" style="color: #ff6b6b; font-weight: 500;">Tips And Gel • 1h • Sophy's Glam Hub</span>
+                </p>
             </div>
         </div>
         <!-- Header End -->
 
-
-        <!-- Appointment Start -->
-        <div class="container-fluid appointment py-5" style="background: var(--bs-primary);">
+        <!-- Booking Form Start -->
+        <div class="container-fluid appointment py-5">
             <div class="container py-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="appointment-form p-5">
-                            <p class="fs-4 text-uppercase text-primary">Get In Touch</p>
-                            <h1 class="display-4 mb-4 text-white">Get Appointment</h1>
-                            <form>
-                                <div class="row gy-3 gx-4">
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control py-3 border-white bg-transparent text-white" placeholder="First Name">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <input type="email" class="form-control py-3 border-white bg-transparent text-white" placeholder="Email">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <select class="form-select py-3 border-white bg-transparent" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <input type="date" class="form-control py-3 border-white bg-transparent">
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <textarea class="form-control border-white bg-transparent text-white" name="text" id="area-text" cols="30" rows="5" placeholder="Write Comments"></textarea>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <button type="button" class="btn btn-primary btn-primary-outline-0 w-100 py-3 px-5">SUBMIT NOW</button>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <!-- Booking Form -->
+                        <div class="bg-white p-5 rounded shadow">
+                            <!-- Service Display Card -->
+                            <div class="service-booking-card mb-5" id="serviceBookingCard" style="display: none;">
+                                <div class="text-center mb-3">
+                                    <h5 class="text-muted mb-2">You are booking</h5>
+                                    <div class="service-display-box p-4 border rounded" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-left: 4px solid var(--bs-primary) !important;">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-2 text-center">
+                                                <i class="fas fa-cut fa-3x text-primary" id="serviceIcon"></i>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h4 class="text-primary mb-1" id="selectedServiceName">Nail Care</h4>
+                                                <p class="text-muted mb-0" id="selectedServiceDuration">Duration: 1 hour</p>
+                                            </div>
+                                            <div class="col-md-4 text-end">
+                                                <h4 class="text-dark mb-0" id="selectedServicePrice">From KES 1,500</h4>
+                                                <small class="text-muted">Price</small>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            <form id="appointmentForm">
+                                <!-- Choose who you are booking for -->
+                                <h5 class="text-primary mb-4">Choose who you are booking for</h5>
+                                <div class="row g-3 mb-4">
+                                    <div class="col-6">
+                                        <div class="booking-for-option p-4 rounded text-center" data-for="myself">
+                                            <i class="fas fa-user fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-dark mb-0">Myself</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="booking-for-option p-4 rounded text-center" data-for="other">
+                                            <i class="fas fa-users fa-2x text-primary mb-3"></i>
+                                            <h6 class="text-dark mb-0">Other Person</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Name and phone number (always visible) -->
+                                <div id="clientDetails">
+                                    <p class="text-muted mb-3" id="clientDetailsLabel">Other person's name and phone number</p>
+                                    <p class="text-muted mb-4" style="font-size: 0.9em;" id="clientDetailsNote">We will send them instructions for viewing this booking.</p>
+                                    
+                                    <div class="row g-3 mb-4">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" id="fullName" placeholder="Full Name" required>
+                                                <label for="fullName">Full name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="form-floating">
+                                                        <select class="form-control" id="countryCode">
+                                                            <option value="+254">+254</option>
+                                                            <option value="+1">+1</option>
+                                                            <option value="+44">+44</option>
+                                                        </select>
+                                                        <label for="countryCode">Code</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="form-floating">
+                                                        <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone number" required>
+                                                        <label for="phoneNumber">Phone number</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Choose your preferred professional -->
+                                <h5 class="text-primary mb-3">Choose your preferred professional</h5>
+                                <div class="mb-4">
+                                    <select class="form-control form-control-lg" id="preferredProfessional">
+                                        <option value="any">Any professional</option>
+                                        <option value="sophy">Sophy (Owner)</option>
+                                        <option value="professional1">Professional 1</option>
+                                        <option value="professional2">Professional 2</option>
+                                    </select>
+                                </div>
+
+                                <!-- Pick a date -->
+                                <h5 class="text-primary mb-3">Pick a date</h5>
+                                <div class="row g-3 mb-4">
+                                    <div class="col-lg-6">
+                                        <input type="date" class="form-control form-control-lg" id="appointmentDate" required>
+                                    </div>
+                                </div>
+
+                                <!-- Pick a time -->
+                                <h5 class="text-primary mb-3">Pick a time</h5>
+                                <div class="row g-2 mb-4" id="timeSlots">
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-slot p-3 rounded text-center" data-time="01:00 PM">01:00 PM</div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-slot p-3 rounded text-center" data-time="01:15 PM">01:15 PM</div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-slot p-3 rounded text-center" data-time="01:30 PM">01:30 PM</div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-slot p-3 rounded text-center" data-time="01:45 PM">01:45 PM</div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-slot p-3 rounded text-center" data-time="02:00 PM">02:00 PM</div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-slot p-3 rounded text-center" data-time="02:15 PM">02:15 PM</div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-slot p-3 rounded text-center" data-time="02:30 PM">02:30 PM</div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-slot p-3 rounded text-center" data-time="02:45 PM">02:45 PM</div>
+                                    </div>
+                                </div>
+
+                                <!-- Any notes? -->
+                                <h5 class="text-primary mb-3">Any notes?</h5>
+                                <div class="mb-4">
+                                    <textarea class="form-control" id="clientNotes" rows="4" placeholder="Leave any notes here" style="min-height: 120px;"></textarea>
+                                </div>
+
+                                <!-- Booking notice -->
+                                <div class="text-center mb-4">
+                                    <p class="text-muted" style="font-size: 0.9em;">
+                                        This booking will be reserved for a maximum of 10 minutes as we wait to process it. If no confirmation is made within this period, the reservation will be released.
+                                    </p>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5 py-3" id="continueBtn" disabled>
+                                        Continue
+                                    </button>
+                                </div>
                             </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="appointment-time p-5">
-                            <h1 class="display-5 mb-4">Opening Hours</h1>
-                            <div class="d-flex justify-content-between fs-5 text-white">
-                                <p>Monday:</p>
-                                <p>8:00 AM – 7:00 PM</p>
-                            </div>
-                            <div class="d-flex justify-content-between fs-5 text-white">
-                                <p>Tuesday:</p>
-                                <p>8:00 AM – 7:00 PM</p>
-                            </div>
-                            <div class="d-flex justify-content-between fs-5 text-white">
-                                <p>Wednesday:</p>
-                                <p>8:00 AM – 7:00 PM</p>
-                            </div>
-                            <div class="d-flex justify-content-between fs-5 text-white">
-                                <p>Thursday:</p>
-                                <p>8:00 AM – 7:00 PM</p>
-                            </div>
-                            <div class="d-flex justify-content-between fs-5 text-white">
-                                <p>Friday:</p>
-                                <p>8:00 AM – 7:00 PM</p>
-                            </div>
-                            <div class="d-flex justify-content-between fs-5 text-white mb-4">
-                                <p>Saturday:</p>
-                                <p>8:00 AM – 7:00 PM</p>
-                            </div>
-                            <div class="d-flex justify-content-between fs-5 text-white mb-4">
-                                <p>Sunday:</p>
-                                <p>8:00 AM – 7:00 PM (Appointments Only)</p>
-                            </div>
-                            <p class="text-dark">Book your appointment today for the best beauty experience.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Appointment End -->
-
-
+        <!-- Booking Form End -->
 
         <!-- Footer Start -->
         <div class="container-fluid footer py-5">
@@ -248,14 +364,12 @@
         </div>
         <!-- Footer End -->
 
-
-
         <!-- Copyright Start -->
         <div class="container-fluid copyright py-4">
             <div class="container">
                 <div class="row g-4 align-items-center">
                     <div class="col-md-4 text-center text-md-start mb-md-0">
-                        <span class="text-light"><a href="#">© 2025 Sophy's Glam Hub | All rights reserved.</span>
+                        <span class="text-light">© 2025 Sophy's Glam Hub | All rights reserved.</span>
                     </div>
                     <div class="col-md-4">
                         <div class="d-flex justify-content-center">
@@ -263,9 +377,6 @@
                         </div>
                     </div>
                     <div class="col-md-4 text-center text-md-end text-white">
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
                         
                     </div>
                 </div>
@@ -273,27 +384,224 @@
         </div>
         <!-- Copyright End -->
 
-
-
         <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+        <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square rounded-circle back-to-top" title="Back to Top"><i class="fa fa-arrow-up"></i></a>   
 
-        
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+
+        <!-- Appointment Booking JavaScript -->
+        <script>
+            let bookingData = {
+                service: '',
+                serviceName: '',
+                price: '',
+                duration: '',
+                bookingFor: '',
+                clientName: '',
+                clientPhone: '',
+                professional: '',
+                date: '',
+                time: '',
+                notes: ''
+            };
+
+            // Check if service parameters are passed from services page
+            window.addEventListener('DOMContentLoaded', function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const service = urlParams.get('service');
+                const price = urlParams.get('price');
+                const duration = urlParams.get('duration');
+
+                if (service && price && duration) {
+                    // Update header with service info
+                    const serviceTitle = document.getElementById('serviceTitle');
+                    // Format duration (remove "hour" and "min" text, keep numbers)
+                    const formattedDuration = duration.replace(' hour', 'h').replace(' min', 'm').replace(' ', '');
+                    serviceTitle.textContent = `${service} • ${formattedDuration} • Sophy's Glam Hub`;
+                    
+                    // Show and populate the service booking card
+                    const serviceBookingCard = document.getElementById('serviceBookingCard');
+                    const serviceName = document.getElementById('selectedServiceName');
+                    const servicePrice = document.getElementById('selectedServicePrice');
+                    const serviceDuration = document.getElementById('selectedServiceDuration');
+                    const serviceIcon = document.getElementById('serviceIcon');
+                    
+                    serviceBookingCard.style.display = 'block';
+                    serviceName.textContent = service;
+                    servicePrice.textContent = price;
+                    serviceDuration.textContent = `Duration: ${duration}`;
+                    
+                    // Set appropriate icon based on service type
+                    let iconClass = 'fas fa-spa'; // default
+                    if (service.toLowerCase().includes('nail') || service.toLowerCase().includes('gel') || service.toLowerCase().includes('acrylic')) {
+                        iconClass = 'fas fa-hand-sparkles';
+                    } else if (service.toLowerCase().includes('hair') || service.toLowerCase().includes('styling') || service.toLowerCase().includes('braid')) {
+                        iconClass = 'fas fa-cut';
+                    } else if (service.toLowerCase().includes('pedicure') || service.toLowerCase().includes('foot')) {
+                        iconClass = 'fas fa-spa';
+                    } else if (service.toLowerCase().includes('treatment') || service.toLowerCase().includes('keratin')) {
+                        iconClass = 'fas fa-magic';
+                    }
+                    serviceIcon.className = `${iconClass} fa-3x text-primary`;
+                    
+                    // Store service data
+                    bookingData.serviceName = service;
+                    bookingData.price = price;
+                    bookingData.duration = duration;
+                } else {
+                    // Default display when no service is selected
+                    document.getElementById('serviceTitle').textContent = 'Select a service • Sophy\'s Glam Hub';
+                }
+
+                // Set minimum date to tomorrow
+                const today = new Date();
+                const tomorrow = new Date(today);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                document.getElementById('appointmentDate').min = tomorrow.toISOString().split('T')[0];
+            });
+
+            // Booking for selection
+            document.querySelectorAll('.booking-for-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    document.querySelectorAll('.booking-for-option').forEach(o => o.classList.remove('selected'));
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    bookingData.bookingFor = this.dataset.for;
+                    
+                    // Update form labels and notes based on selection
+                    const clientDetailsLabel = document.getElementById('clientDetailsLabel');
+                    const clientDetailsNote = document.getElementById('clientDetailsNote');
+                    
+                    if (this.dataset.for === 'other') {
+                        clientDetailsLabel.textContent = 'Other person\'s name and phone number';
+                        clientDetailsNote.textContent = 'We will send them instructions for viewing this booking.';
+                    } else {
+                        clientDetailsLabel.textContent = 'Your name and phone number';
+                        clientDetailsNote.textContent = 'We will send you instructions for viewing this booking.';
+                    }
+                    
+                    checkFormCompletion();
+                });
+            });
+
+            // Time slot selection
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                slot.addEventListener('click', function() {
+                    // Remove selected class from all time slots
+                    document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                    // Add selected class to clicked slot
+                    this.classList.add('selected');
+                    
+                    bookingData.time = this.dataset.time;
+                    checkFormCompletion();
+                });
+            });
+
+            // Form input event listeners
+            document.getElementById('fullName').addEventListener('input', function() {
+                bookingData.clientName = this.value.trim();
+                checkFormCompletion();
+            });
+
+            document.getElementById('phoneNumber').addEventListener('input', function() {
+                const countryCode = document.getElementById('countryCode').value;
+                bookingData.clientPhone = countryCode + this.value.trim();
+                checkFormCompletion();
+            });
+
+            document.getElementById('countryCode').addEventListener('change', function() {
+                const phoneNumber = document.getElementById('phoneNumber').value.trim();
+                if (phoneNumber) {
+                    bookingData.clientPhone = this.value + phoneNumber;
+                }
+                checkFormCompletion();
+            });
+
+            document.getElementById('preferredProfessional').addEventListener('change', function() {
+                bookingData.professional = this.value;
+                checkFormCompletion();
+            });
+
+            document.getElementById('appointmentDate').addEventListener('change', function() {
+                bookingData.date = this.value;
+                checkFormCompletion();
+            });
+
+            document.getElementById('clientNotes').addEventListener('input', function() {
+                bookingData.notes = this.value.trim();
+            });
+
+            // Form validation
+            function checkFormCompletion() {
+                const continueBtn = document.getElementById('continueBtn');
+                let isValid = true;
+
+                // Check if booking for is selected
+                if (!bookingData.bookingFor) {
+                    isValid = false;
+                }
+
+                // Always require name and phone number (both for myself and other person)
+                const nameValue = document.getElementById('fullName').value.trim();
+                const phoneValue = document.getElementById('phoneNumber').value.trim();
+                if (!nameValue || !phoneValue) {
+                    isValid = false;
+                }
+
+                // Check if date and time are selected
+                if (!bookingData.date || !bookingData.time) {
+                    isValid = false;
+                }
+
+                continueBtn.disabled = !isValid;
+            }
+
+            // Form submission
+            document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Collect all form data
+                bookingData.professional = document.getElementById('preferredProfessional').value;
+                bookingData.notes = document.getElementById('clientNotes').value.trim();
+                
+                // Format booking summary
+                let summary = `New Appointment Booking:\n\n`;
+                if (bookingData.serviceName) {
+                    summary += `Service: ${bookingData.serviceName}\n`;
+                    summary += `Price: ${bookingData.price}\n`;
+                    summary += `Duration: ${bookingData.duration}\n\n`;
+                }
+                summary += `Client: ${bookingData.clientName}\n`;
+                if (bookingData.clientPhone) {
+                    summary += `Phone: ${bookingData.clientPhone}\n`;
+                }
+                summary += `Professional: ${bookingData.professional === 'any' ? 'Any available professional' : bookingData.professional}\n`;
+                summary += `Date: ${new Date(bookingData.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}\n`;
+                summary += `Time: ${bookingData.time}\n`;
+                if (bookingData.notes) {
+                    summary += `Notes: ${bookingData.notes}\n`;
+                }
+                
+                // Here you would normally send this data to your backend
+                alert(`Booking Request Submitted!\n\n${summary}\nWe will contact you shortly to confirm your appointment.`);
+                
+                // Optional: Reset form or redirect
+                // window.location.href = 'index.html';
+            });
+        </script>
     </body>
 
 </html>
-
-
-
