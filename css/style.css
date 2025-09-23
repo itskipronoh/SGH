@@ -573,16 +573,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Specific opacity settings for each carousel image */
-.carousel-img-s1 {
-    opacity: 0.7; /* S1 - 70% */
+.carousel-item .carousel-img-s1 {
+    opacity: 0.7 !important; /* S1 - 70% */
 }
 
-.carousel-img-s2 {
-    opacity: 0.9; /* S2 - 90% */
+.carousel-item .carousel-img-s2 {
+    opacity: 0.9 !important; /* S2 - 90% */
 }
 
-.carousel-img-s3 {
-    opacity: 0.25; /* S3 - 25% */
+.carousel-item .carousel-img-s3 {
+    opacity: 0.25 !important; /* S3 - 25% */
+}
+
+/* Alternative targeting for stronger specificity */
+.carousel-img.carousel-img-s1 {
+    opacity: 0.7 !important; /* S1 - 70% */
+}
+
+.carousel-img.carousel-img-s2 {
+    opacity: 0.9 !important; /* S2 - 90% */
+}
+
+.carousel-img.carousel-img-s3 {
+    opacity: 0.25 !important; /* S3 - 25% */
 }
 }
 
