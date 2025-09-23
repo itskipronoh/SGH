@@ -27,6 +27,42 @@
 /* Modern Global Enhancements */
 * {
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global Text Contrast Improvements */
+p, span, div:not(.carousel-caption):not(.footer):not(.copyright), li, td, th, small {
+    color: #2C1810 !important;  /* Dark brown for excellent readability */
+}
+
+/* Ensure headings have proper contrast */
+h1, h2, h3, h4, h5, h6 {
+    color: #8B6F40 !important;  /* Dark sand for headings */
+}
+
+/* Dark background sections */
+.bg-dark, .footer, .copyright {
+    color: #FFFFFF !important;
+}
+
+.bg-dark *, .footer *, .copyright * {
+    color: #FFFFFF !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Light backgrounds ensure dark text */
+.bg-light, .card, .bg-white {
+    color: #2C1810 !important;
+}
+
+.bg-light *, .card *, .bg-white * {
+    color: #2C1810 !important;
+}
+
+/* Specific exceptions for buttons and interactive elements */
+.btn, .nav-link, .dropdown-item {
+    /* Preserve existing button/navigation styling */
 }
 
 html {
@@ -36,14 +72,57 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: var(--bs-dark);
+    color: #2C1810;  /* Dark brown for better readability */
     background-color: var(--cream);
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
-    color: var(--bs-primary);
+    color: var(--sand-dark);  /* Darker sand for better contrast */
+}
+
+/* Text Color Classes for Better Visibility */
+.text-primary {
+    color: var(--sand-dark) !important;  /* Darker sand for better contrast */
+}
+
+.text-secondary {
+    color: var(--oat-dark) !important;   /* Darker oat for better contrast */
+}
+
+.text-dark {
+    color: #2C1810 !important;           /* Very dark brown for excellent readability */
+}
+
+.text-muted {
+    color: #5D4E37 !important;           /* Medium brown for secondary text */
+}
+
+.text-light-readable {
+    color: #F7F3EC !important;           /* Cream for dark backgrounds */
+}
+
+/* Ensure white text is actually visible on dark backgrounds */
+.text-white {
+    color: #FFFFFF !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Improve text on various background colors */
+.bg-primary .text-white,
+.bg-secondary .text-white,
+.footer .text-white,
+.copyright .text-white {
+    color: #FFFFFF !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Card text improvements */
+.card-body p,
+.card-body h5,
+.card-body h6 {
+    color: #2C1810 !important;
 }
 
 /* Enhanced Section Headers */
@@ -71,11 +150,27 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 10px 30px rgba(197, 165, 114, 0.1) !important;
     transition: all 0.3s ease !important;
     overflow: hidden !important;
+    background: #FFFFFF !important;
 }
 
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(197, 165, 114, 0.2) !important;
+}
+
+.card-body {
+    background: #FFFFFF !important;
+    color: #2C1810 !important;
+}
+
+.card-title {
+    color: var(--sand-dark) !important;
+    font-weight: 600 !important;
+}
+
+.card-text {
+    color: #2C1810 !important;
+    line-height: 1.6 !important;
 }
 
 /* Custom Scrollbar */
@@ -92,6 +187,72 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 4px;
 }
 
+/* Additional Text Visibility Classes */
+.section-title {
+    color: var(--sand-dark) !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    margin-bottom: 50px !important;
+}
+
+.section-subtitle {
+    color: var(--oat-dark) !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+}
+
+.text-on-light-bg {
+    color: #2C1810 !important;
+}
+
+.text-on-dark-bg {
+    color: #FFFFFF !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.bg-sand-light {
+    background-color: var(--sand-light) !important;
+}
+
+.bg-cream {
+    background-color: var(--cream) !important;
+}
+
+/* Service card specific styling */
+.service-card .card-title {
+    color: var(--sand-dark) !important;
+    font-weight: 600 !important;
+}
+
+.service-card .card-text {
+    color: #2C1810 !important;
+    line-height: 1.6 !important;
+}
+
+/* Testimonial styling */
+.testimonial-item {
+    background: #FFFFFF !important;
+    border-radius: 15px !important;
+    padding: 30px !important;
+    box-shadow: 0 10px 30px rgba(197, 165, 114, 0.1) !important;
+}
+
+.testimonial-item p {
+    color: #2C1810 !important;
+    font-style: italic !important;
+    margin-bottom: 20px !important;
+}
+
+.testimonial-item h5 {
+    color: var(--sand-dark) !important;
+    font-weight: 600 !important;
+}
+
+.testimonial-item small {
+    color: var(--oat-dark) !important;
+}
+
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, var(--bs-secondary), var(--sand-dark));
 }
@@ -106,10 +267,33 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.5px !important;
     transition: all 0.3s ease !important;
     box-shadow: 0 4px 15px rgba(197, 165, 114, 0.3) !important;
+    color: #FFFFFF !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, var(--bs-secondary), var(--sand-dark)) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(197, 165, 114, 0.4) !important;
+    color: #FFFFFF !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+.btn-secondary {
+    background: transparent !important;
+    border: 2px solid var(--bs-primary) !important;
+    border-radius: 25px !important;
+    padding: 10px 28px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.3s ease !important;
+    color: var(--sand-dark) !important;
+}
+
+.btn-secondary:hover {
+    background: var(--bs-primary) !important;
+    color: #FFFFFF !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
     transform: translateY(-2px) !important;
     box-shadow: 0 6px 20px rgba(197, 165, 114, 0.4) !important;
 }
@@ -264,7 +448,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 15px 20px;
     font-size: 16px;
     font-weight: 500;
-    color: var(--bs-dark) !important;
+    color: #2C1810 !important;  /* Dark brown for excellent readability */
     position: relative;
     transition: all 0.3s ease;
 }
@@ -283,7 +467,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color: var(--bs-primary) !important;
+    color: var(--sand-dark) !important;  /* Darker sand for better contrast */
 }
 
 .navbar .navbar-nav .nav-link:hover::after,
@@ -361,7 +545,9 @@ h1, h2, h3, h4, h5, h6 {
 /*** Carousel Start ***/
 .carousel-item {
     position: relative;
-    min-height: 100vh;
+    min-height: 70vh;
+    max-height: 90vh;
+    overflow: hidden;
 }
 
 .carousel-item img {
@@ -369,6 +555,35 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    -ms-interpolation-mode: bicubic;
+/* Ensure .img-fluid does not override carousel sizing */
+.carousel-img.img-fluid {
+    max-width: 100vw;
+    max-height: 90vh;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Specific opacity settings for each carousel image */
+.carousel-img-s1 {
+    opacity: 0.7; /* S1 - 70% */
+}
+
+.carousel-img-s2 {
+    opacity: 0.9; /* S2 - 90% */
+}
+
+.carousel-img-s3 {
+    opacity: 0.25; /* S3 - 25% */
+}
 }
 
 .carousel-item .carousel-caption {
@@ -392,8 +607,8 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 3.5rem !important;
     font-family: 'Playfair Display', serif !important;
     font-weight: 700 !important;
-    color: white !important;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    color: #FFFFFF !important;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
     margin-bottom: 20px !important;
 }
 
@@ -401,15 +616,16 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--gold-accent) !important;
     font-weight: 600 !important;
     letter-spacing: 2px !important;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
 }
 
 .carousel-caption p {
     font-size: 1.2rem !important;
-    color: rgba(255, 255, 255, 0.95) !important;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    color: #FFFFFF !important;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
     max-width: 600px !important;
     margin: 0 auto 30px !important;
+    font-weight: 400 !important;
 }
 
 .carousel-control-prev,
@@ -932,15 +1148,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer .footer-item a,
 .footer .footer-item p {
-    color: var(--bs-white);
+    color: #FFFFFF !important;
     line-height: 40px;
     font-size: 17px;
     transition: 0.5s;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .footer .footer-item a:hover {
     letter-spacing: 2px;
     color: var(--bs-primary) !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.footer h4 {
+    color: #FFFFFF !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /*** Footer End ***/
@@ -949,6 +1172,11 @@ h1, h2, h3, h4, h5, h6 {
 .copyright {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     background: var(--bs-dark) !important;
+}
+
+.copyright p {
+    color: #FFFFFF !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 /*** copyright end ***/
 
