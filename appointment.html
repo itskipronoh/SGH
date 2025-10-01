@@ -138,162 +138,416 @@
         </div>
         <!-- Header End -->
 
+                <!-- Header End -->
+
         <!-- Booking Form Start -->
-        <div class="container-fluid appointment py-5">
+        <div class="container-fluid py-5">
             <div class="container py-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
+                        <!-- Service Display Card (shows when coming from services page) -->
+                        <div id="serviceBookingCard" class="service-display p-4 rounded mb-4" style="display: none;">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 text-center">
+                                    <i id="serviceIcon" class="fas fa-spa fa-3x text-primary"></i>
+                                </div>
+                                <div class="col-md-10">
+                                    <h5 class="text-primary mb-2">You are booking:</h5>
+                                    <h4 id="selectedServiceName" class="mb-1">Hair Styling</h4>
+                                    <p class="mb-1"><strong id="selectedServicePrice">KES 3,000</strong></p>
+                                    <p class="text-muted mb-0" id="selectedServiceDuration">Duration: 1-2 hours</p>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Booking Form -->
-                        <div class="bg-white p-5 rounded shadow">
-                            <!-- Service Display Card -->
-                            <div class="service-booking-card mb-5" id="serviceBookingCard" style="display: none;">
-                                <div class="text-center mb-3">
-                                    <h5 class="text-muted mb-2">You are booking</h5>
-                                    <div class="service-display-box p-4 border rounded" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-left: 4px solid var(--bs-primary) !important;">
-                                        <div class="row align-items-center">
-                                            <div class="col-md-2 text-center">
-                                                <i class="fas fa-cut fa-3x text-primary" id="serviceIcon"></i>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <h4 class="text-primary mb-1" id="selectedServiceName">Nail Care</h4>
-                                                <p class="text-muted mb-0" id="selectedServiceDuration">Duration: 1 hour</p>
-                                            </div>
-                                            <div class="col-md-4 text-end">
-                                                <h4 class="text-dark mb-0" id="selectedServicePrice">From KES 1,500</h4>
-                                                <small class="text-muted">Price</small>
+                        <form id="appointmentForm" class="bg-light p-5 rounded">
+                            <h3 class="text-primary mb-4">Book Your Appointment</h3>
+                            
+                            <!-- Step 1: Booking For -->
+                            <div class="mb-4">
+                                <h5 id="clientDetailsLabel" class="mb-3">Choose who you are booking for</h5>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="booking-for-option p-3 rounded text-center" data-for="myself">
+                                            <i class="fas fa-user fa-2x text-primary mb-2"></i>
+                                            <h6>Myself</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="booking-for-option p-3 rounded text-center" data-for="other">
+                                            <i class="fas fa-users fa-2x text-primary mb-2"></i>
+                                            <h6>Other Person</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p id="clientDetailsNote" class="text-muted small">We will send you instructions for viewing this booking.</p>
+                            </div>
+
+                            <!-- Step 2: Client Details -->
+                            <div class="mb-4">
+                                <div class="row">
+                                    <div class="col-md-8 mb-3">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="fullName" placeholder="Full Name" required>
+                                            <label for="fullName">Full Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="input-group">
+                                            <select class="form-select" id="countryCode" style="max-width: 100px;">
+                                                <option value="+254">+254</option>
+                                                <option value="+1">+1</option>
+                                                <option value="+44">+44</option>
+                                            </select>
+                                            <div class="form-floating">
+                                                <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number" required>
+                                                <label for="phoneNumber">Phone Number</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <form id="appointmentForm">
-                                <!-- Choose who you are booking for -->
-                                <h5 class="text-primary mb-4">Choose who you are booking for</h5>
-                                <div class="row g-3 mb-4">
-                                    <div class="col-6">
-                                        <div class="booking-for-option p-4 rounded text-center" data-for="myself">
-                                            <i class="fas fa-user fa-2x text-primary mb-3"></i>
-                                            <h6 class="text-dark mb-0">Myself</h6>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="booking-for-option p-4 rounded text-center" data-for="other">
-                                            <i class="fas fa-users fa-2x text-primary mb-3"></i>
-                                            <h6 class="text-dark mb-0">Other Person</h6>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Name and phone number (always visible) -->
-                                <div id="clientDetails">
-                                    <p class="text-muted mb-3" id="clientDetailsLabel">Other person's name and phone number</p>
-                                    <p class="text-muted mb-4" style="font-size: 0.9em;" id="clientDetailsNote">We will send them instructions for viewing this booking.</p>
-                                    
-                                    <div class="row g-3 mb-4">
-                                        <div class="col-lg-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="fullName" placeholder="Full Name" required>
-                                                <label for="fullName">Full name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="form-floating">
-                                                        <select class="form-control" id="countryCode">
-                                                            <option value="+254">+254</option>
-                                                            <option value="+1">+1</option>
-                                                            <option value="+44">+44</option>
-                                                        </select>
-                                                        <label for="countryCode">Code</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="form-floating">
-                                                        <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone number" required>
-                                                        <label for="phoneNumber">Phone number</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Choose your preferred professional -->
-                                <h5 class="text-primary mb-3">Choose your preferred professional</h5>
-                                <div class="mb-4">
-                                    <select class="form-control form-control-lg" id="preferredProfessional">
-                                        <option value="any">Any professional</option>
-                                        <option value="sophy">Sophy </option>
-                                        <option value="professional1">Professional</option>
-
+                            <!-- Step 3: Professional Preference -->
+                            <div class="mb-4">
+                                <h5 class="mb-3">Choose your preferred professional</h5>
+                                <div class="form-floating">
+                                    <select class="form-select" id="preferredProfessional">
+                                        <option value="any">Any available professional</option>
+                                        <option value="sophy">Sophy (Owner)</option>
+                                        <option value="specialist1">Hair Specialist</option>
+                                        <option value="specialist2">Nail Specialist</option>
                                     </select>
+                                    <label for="preferredProfessional">Preferred Professional</label>
                                 </div>
+                            </div>
 
-                                <!-- Pick a date -->
-                                <h5 class="text-primary mb-3">Pick a date</h5>
-                                <div class="row g-3 mb-4">
-                                    <div class="col-lg-6">
-                                        <input type="date" class="form-control form-control-lg" id="appointmentDate" required>
-                                    </div>
+                            <!-- Step 4: Date Selection -->
+                            <div class="mb-4">
+                                <h5 class="mb-3">Pick a date</h5>
+                                <div class="form-floating">
+                                    <input type="date" class="form-control" id="appointmentDate" required>
+                                    <label for="appointmentDate">Appointment Date</label>
                                 </div>
+                            </div>
 
-                                <!-- Pick a time -->
-                                <h5 class="text-primary mb-3">Pick a time</h5>
-                                <div class="row g-2 mb-4" id="timeSlots">
-                                    <div class="col-6 col-md-3">
-                                        <div class="time-slot p-3 rounded text-center" data-time="01:00 PM">01:00 PM</div>
+                            <!-- Step 5: Time Selection -->
+                            <div class="mb-4">
+                                <h5 class="mb-3">Pick a time</h5>
+                                <div class="row">
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="time-slot p-2 text-center rounded" data-time="9:00 AM">9:00 AM</div>
                                     </div>
-                                    <div class="col-6 col-md-3">
-                                        <div class="time-slot p-3 rounded text-center" data-time="01:15 PM">01:15 PM</div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="time-slot p-2 text-center rounded" data-time="10:00 AM">10:00 AM</div>
                                     </div>
-                                    <div class="col-6 col-md-3">
-                                        <div class="time-slot p-3 rounded text-center" data-time="01:30 PM">01:30 PM</div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="time-slot p-2 text-center rounded" data-time="11:00 AM">11:00 AM</div>
                                     </div>
-                                    <div class="col-6 col-md-3">
-                                        <div class="time-slot p-3 rounded text-center" data-time="01:45 PM">01:45 PM</div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="time-slot p-2 text-center rounded" data-time="12:00 PM">12:00 PM</div>
                                     </div>
-                                    <div class="col-6 col-md-3">
-                                        <div class="time-slot p-3 rounded text-center" data-time="02:00 PM">02:00 PM</div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="time-slot p-2 text-center rounded" data-time="1:00 PM">1:00 PM</div>
                                     </div>
-                                    <div class="col-6 col-md-3">
-                                        <div class="time-slot p-3 rounded text-center" data-time="02:15 PM">02:15 PM</div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="time-slot p-2 text-center rounded" data-time="2:00 PM">2:00 PM</div>
                                     </div>
-                                    <div class="col-6 col-md-3">
-                                        <div class="time-slot p-3 rounded text-center" data-time="02:30 PM">02:30 PM</div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="time-slot p-2 text-center rounded" data-time="3:00 PM">3:00 PM</div>
                                     </div>
-                                    <div class="col-6 col-md-3">
-                                        <div class="time-slot p-3 rounded text-center" data-time="02:45 PM">02:45 PM</div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="time-slot p-2 text-center rounded" data-time="4:00 PM">4:00 PM</div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="time-slot p-2 text-center rounded" data-time="5:00 PM">5:00 PM</div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="time-slot p-2 text-center rounded" data-time="6:00 PM">6:00 PM</div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <!-- Any notes? -->
-                                <h5 class="text-primary mb-3">Any notes?</h5>
-                                <div class="mb-4">
-                                    <textarea class="form-control" id="clientNotes" rows="4" placeholder="Leave any notes here" style="min-height: 120px;"></textarea>
+                            <!-- Step 6: Notes -->
+                            <div class="mb-4">
+                                <h5 class="mb-3">Any notes?</h5>
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="clientNotes" placeholder="Leave any notes here" style="height: 100px"></textarea>
+                                    <label for="clientNotes">Special requests or notes (optional)</label>
                                 </div>
+                            </div>
 
-                                <!-- Booking notice -->
-                                <div class="text-center mb-4">
-                                    <p class="text-muted" style="font-size: 0.9em;">
-                                        This booking will be reserved for a maximum of 10 minutes as we wait to process it. If no confirmation is made within this period, the reservation will be released.
-                                    </p>
-                                </div>
-
-                                <!-- Submit Button -->
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5 py-3" id="continueBtn" disabled>
-                                        Continue
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+                            <!-- Submit Button -->
+                            <div class="text-center">
+                                <button type="submit" id="continueBtn" class="btn btn-primary btn-lg px-5 py-3 rounded-pill" disabled>
+                                    <i class="fas fa-calendar-check me-2"></i>Book Appointment
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Booking Form End -->
+
+        <!-- Footer Start -->
+
+                  <!-- Appointment Booking JavaScript -->
+            <script>
+                let bookingData = {
+                    service: '',
+                    serviceName: '',
+                    price: '',
+                    duration: '',
+                    bookingFor: '',
+                    clientName: '',
+                    clientPhone: '',
+                    professional: '',
+                    date: '',
+                    time: '',
+                    notes: ''
+                };
+    
+                // Check if service parameters are passed from services page
+                window.addEventListener('DOMContentLoaded', function() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const service = urlParams.get('service');
+                    const price = urlParams.get('price');
+                    const duration = urlParams.get('duration');
+    
+                    if (service && price && duration) {
+                        // Update header with service info
+                        const serviceTitle = document.getElementById('serviceTitle');
+                        const formattedDuration = duration.replace(' hour', 'h').replace(' min', 'm').replace(' ', '');
+                        serviceTitle.textContent = `${service} • ${formattedDuration} • Sophy's Glam Hub`;
+                        
+                        // Show and populate the service booking card
+                        const serviceBookingCard = document.getElementById('serviceBookingCard');
+                        const serviceName = document.getElementById('selectedServiceName');
+                        const servicePrice = document.getElementById('selectedServicePrice');
+                        const serviceDuration = document.getElementById('selectedServiceDuration');
+                        const serviceIcon = document.getElementById('serviceIcon');
+                        
+                        serviceBookingCard.style.display = 'block';
+                        serviceName.textContent = service;
+                        servicePrice.textContent = price;
+                        serviceDuration.textContent = `Duration: ${duration}`;
+                        
+                        // Set appropriate icon based on service type
+                        let iconClass = 'fas fa-spa';
+                        if (service.toLowerCase().includes('nail') || service.toLowerCase().includes('gel') || service.toLowerCase().includes('acrylic')) {
+                            iconClass = 'fas fa-hand-sparkles';
+                        } else if (service.toLowerCase().includes('hair') || service.toLowerCase().includes('styling') || service.toLowerCase().includes('braid')) {
+                            iconClass = 'fas fa-cut';
+                        } else if (service.toLowerCase().includes('pedicure') || service.toLowerCase().includes('foot')) {
+                            iconClass = 'fas fa-spa';
+                        } else if (service.toLowerCase().includes('treatment') || service.toLowerCase().includes('keratin')) {
+                            iconClass = 'fas fa-magic';
+                        }
+                        serviceIcon.className = `${iconClass} fa-3x text-primary`;
+                        
+                        // Store service data
+                        bookingData.serviceName = service;
+                        bookingData.price = price;
+                        bookingData.duration = duration;
+                    } else {
+                        document.getElementById('serviceTitle').textContent = 'Select a service • Sophy\'s Glam Hub';
+                    }
+    
+                    // Set minimum date to tomorrow
+                    const today = new Date();
+                    const tomorrow = new Date(today);
+                    tomorrow.setDate(tomorrow.getDate() + 1);
+                    document.getElementById('appointmentDate').min = tomorrow.toISOString().split('T')[0];
+                });
+    
+                // Booking for selection
+                document.querySelectorAll('.booking-for-option').forEach(option => {
+                    option.addEventListener('click', function() {
+                        document.querySelectorAll('.booking-for-option').forEach(o => o.classList.remove('selected'));
+                        this.classList.add('selected');
+                        
+                        bookingData.bookingFor = this.dataset.for;
+                        
+                        const clientDetailsLabel = document.getElementById('clientDetailsLabel');
+                        const clientDetailsNote = document.getElementById('clientDetailsNote');
+                        
+                        if (this.dataset.for === 'other') {
+                            clientDetailsLabel.textContent = 'Other person\'s name and phone number';
+                            clientDetailsNote.textContent = 'We will send them instructions for viewing this booking.';
+                        } else {
+                            clientDetailsLabel.textContent = 'Your name and phone number';
+                            clientDetailsNote.textContent = 'We will send you instructions for viewing this booking.';
+                        }
+                        
+                        checkFormCompletion();
+                    });
+                });
+    
+                // Time slot selection
+                document.querySelectorAll('.time-slot').forEach(slot => {
+                    slot.addEventListener('click', function() {
+                        document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                        this.classList.add('selected');
+                        
+                        bookingData.time = this.dataset.time;
+                        checkFormCompletion();
+                    });
+                });
+    
+                // Form input event listeners
+                document.getElementById('fullName').addEventListener('input', function() {
+                    bookingData.clientName = this.value.trim();
+                    checkFormCompletion();
+                });
+    
+                document.getElementById('phoneNumber').addEventListener('input', function() {
+                    const countryCode = document.getElementById('countryCode').value;
+                    bookingData.clientPhone = countryCode + this.value.trim();
+                    checkFormCompletion();
+                });
+    
+                document.getElementById('countryCode').addEventListener('change', function() {
+                    const phoneNumber = document.getElementById('phoneNumber').value.trim();
+                    if (phoneNumber) {
+                        bookingData.clientPhone = this.value + phoneNumber;
+                    }
+                    checkFormCompletion();
+                });
+    
+                document.getElementById('preferredProfessional').addEventListener('change', function() {
+                    bookingData.professional = this.value;
+                    checkFormCompletion();
+                });
+    
+                document.getElementById('appointmentDate').addEventListener('change', function() {
+                    bookingData.date = this.value;
+                    checkFormCompletion();
+                });
+    
+                document.getElementById('clientNotes').addEventListener('input', function() {
+                    bookingData.notes = this.value.trim();
+                });
+    
+                // Form validation
+                function checkFormCompletion() {
+                    const continueBtn = document.getElementById('continueBtn');
+                    let isValid = true;
+    
+                    if (!bookingData.bookingFor) isValid = false;
+    
+                    const nameValue = document.getElementById('fullName').value.trim();
+                    const phoneValue = document.getElementById('phoneNumber').value.trim();
+                    if (!nameValue || !phoneValue) isValid = false;
+    
+                    if (!bookingData.date || !bookingData.time) isValid = false;
+    
+                    continueBtn.disabled = !isValid;
+                }
+    
+                // Form submission with WhatsApp functionality
+                document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Collect all form data
+                    const service = bookingData.serviceName || 'General Service';
+                    const price = bookingData.price || 'Contact for pricing';
+                    const duration = bookingData.duration || '1 hour';
+                    const bookingFor = document.querySelector('.booking-for-option.selected')?.dataset.for || 'not specified';
+                    const clientName = document.getElementById('fullName').value;
+                    const clientPhone = document.getElementById('countryCode').value + document.getElementById('phoneNumber').value;
+                    const selectedDate = document.getElementById('appointmentDate').value;
+                    const selectedTime = document.querySelector('.time-slot.selected')?.textContent || 'Not selected';
+                    const professional = document.getElementById('preferredProfessional').value;
+                    const notes = document.getElementById('clientNotes').value || 'No special notes';
+                    const bookingTime = new Date().toLocaleString('en-KE', { timeZone: 'Africa/Nairobi' });
+                    const bookingId = 'SGH-' + Date.now();
+
+                    // Validate required fields
+                    if (!clientName || !clientPhone || !selectedDate || selectedTime === 'Not selected' || !bookingFor) {
+                        alert('Please fill in all required fields and select a time slot.');
+                        return;
+                    }
+
+                    // Create WhatsApp message
+                    const whatsappMessage = `🔔 NEW BOOKING ALERT! 🔔
+
+Booking ID: ${bookingId}
+Service: ${service}
+Price: ${price}
+Duration: ${duration}
+
+CLIENT DETAILS:
+Name: ${clientName}
+Phone: ${clientPhone}
+Booking for: ${bookingFor.charAt(0).toUpperCase() + bookingFor.slice(1)}
+
+APPOINTMENT DETAILS:
+Date: ${new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+Time: ${selectedTime}
+Professional: ${professional === 'any' ? 'Any available professional' : professional}
+
+SPECIAL NOTES:
+${notes}
+
+Booked at: ${bookingTime}
+
+Please confirm this booking with the client.
+
+Sophy's Glam Hub - Comet Mall, Nairobi
+Phone: +254711862041`;
+
+                    // Create WhatsApp link
+                    const whatsappURL = `https://wa.me/254782606380?text=${encodeURIComponent(whatsappMessage)}`;
+                    
+                    // Show success message to customer
+                    const successMessage = `🎉 BOOKING CONFIRMED! 🎉
+
+Booking ID: ${bookingId}
+Service: ${service}
+Client: ${clientName}
+Phone: ${clientPhone}
+Date: ${new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+Time: ${selectedTime}
+
+Your booking details have been sent to our WhatsApp!
+We'll contact you shortly to confirm your appointment.
+
+Thank you for choosing Sophy's Glam Hub! ✨`;
+
+                    alert(successMessage);
+                    
+                    // Open WhatsApp with booking details
+                    window.open(whatsappURL, '_blank');
+                    
+                    // Reset form
+                    document.getElementById('appointmentForm').reset();
+                    document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected'));
+                    document.querySelectorAll('.booking-for-option').forEach(option => option.classList.remove('selected'));
+                    document.getElementById('serviceBookingCard').style.display = 'none';
+                    document.getElementById('continueBtn').disabled = true;
+                    
+                    // Log booking for reference
+                    console.log('Booking Details:', {
+                        bookingId,
+                        service,
+                        clientName,
+                        clientPhone,
+                        selectedDate,
+                        selectedTime,
+                        professional,
+                        notes,
+                        bookingTime
+                    });
+                });
+
+                // Helper function to get URL parameters
+                function getUrlParameter(name) {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get(name);
+                }
+            </script>
 
         <!-- Footer Start -->
         <div class="container-fluid footer py-5">
