@@ -471,35 +471,49 @@
                     }
 
                     // Create WhatsApp message
-                    const whatsappMessage = `🔔 NEW BOOKING ALERT! 🔔
+// ...existing code...
 
-Booking ID: ${bookingId}
-Service: ${service}
-Price: ${price}
-Duration: ${duration}
+                    // Create improved WhatsApp message with better emoji support
+                    const whatsappMessage = `NEW BOOKING ALERT!
 
-CLIENT DETAILS:
-Name: ${clientName}
-Phone: ${clientPhone}
-Booking for: ${bookingFor.charAt(0).toUpperCase() + bookingFor.slice(1)}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 BOOKING ID: ${bookingId}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-APPOINTMENT DETAILS:
-Date: ${new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-Time: ${selectedTime}
-Professional: ${professional === 'any' ? 'Any available professional' : professional}
+💄 SERVICE: ${service}
+⏱️ DURATION: ${duration}
 
-SPECIAL NOTES:
+👤 CLIENT DETAILS:
+📞 Name: ${clientName}
+📱 Phone: ${clientPhone}
+🎯 Booking for: ${bookingFor.charAt(0).toUpperCase() + bookingFor.slice(1)}
+
+📅 APPOINTMENT DETAILS:
+📆 Date: ${new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+⏰ Time: ${selectedTime}
+👩‍💼 Professional: ${professional === 'any' ? 'Any available professional' : professional}
+
+📝 SPECIAL NOTES:
 ${notes}
 
-Booked at: ${bookingTime}
+🕐 Booked at: ${bookingTime}
 
-Please confirm this booking with the client.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ ACTION REQUIRED:
+Please confirm this booking with the client ASAP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Sophy's Glam Hub - Comet Mall, Nairobi
-Phone: +254711862041`;
+🏢 Sophy's Glam Hub
+📍 Comet Mall, 1st Floor
+    Monrovia Street, Nairobi
+📞 +254711862041
+📧 sophyglamhub@gmail.com
 
+Thank you! 🌟`;
+
+// ...existing code...
                     // Create WhatsApp link
-                    const whatsappURL = `https://wa.me/254782606380?text=${encodeURIComponent(whatsappMessage)}`;
+                    const whatsappURL = `https://wa.me/+254711862041?text=${encodeURIComponent(whatsappMessage)}`;
                     
                     // Show success message to customer
                     const successMessage = `🎉 BOOKING CONFIRMED! 🎉
@@ -845,7 +859,7 @@ Thank you for choosing Sophy's Glam Hub! ✨`;
 
             // Function to send SMS notifications
             function sendBookingNotifications(bookingData, summary) {
-                const ownerPhone = '+254782606380';
+                const ownerPhone = '+254711862041';
                 
                 // Client message
                 const clientMessage = `🌟 BOOKING CONFIRMED! 🌟\n\n` +
@@ -900,7 +914,7 @@ Thank you for choosing Sophy's Glam Hub! ✨`;
                     professional: document.getElementById('preferredProfessional').value,
                     notes: document.getElementById('clientNotes').value
                 };
-
+  
                 // Send to PHP backend
                 fetch('send_booking_sms.php', {
                     method: 'POST',
@@ -992,7 +1006,7 @@ Thank you for choosing Sophy's Glam Hub! ✨`;
                                 <p style="margin: 0; color: #1976d2;">
                                     📱 <strong>SMS confirmations sent to:</strong><br>
                                     • Your phone: ${bookingData.clientPhone}<br>
-                                    • Our salon: +254782606380
+                                    • Our salon:+254711862041
                                 </p>
                             </div>
                             <p style="color: #6c757d; margin-bottom: 30px;">

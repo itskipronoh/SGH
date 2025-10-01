@@ -116,7 +116,7 @@ function sendSMS($phoneNumber, $message, $from = 'SophysGlam') {
         'from' => $from
     ];
     
-    $headers = [
+    $headers = [uto-open WhatsApp 
         'Accept: application/json',
         'Content-Type: application/x-www-form-urlencoded',
         'apiKey: ' . $apiKey
