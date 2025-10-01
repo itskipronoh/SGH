@@ -471,47 +471,35 @@
                     }
 
                     // Create WhatsApp message
-// ...existing code...
+                    const whatsappMessage = `NEW BOOKING ALERT! 
 
-                    // Create improved WhatsApp message with better emoji support
-                    const whatsappMessage = `NEW BOOKING ALERT!
+Booking ID: ${bookingId}
+Service: ${service}
+Duration: ${duration}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 BOOKING ID: ${bookingId}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CLIENT DETAILS:
+Name: ${clientName}
+Phone: ${clientPhone}
+Booking for: ${bookingFor.charAt(0).toUpperCase() + bookingFor.slice(1)}
 
-💄 SERVICE: ${service}
-⏱️ DURATION: ${duration}
+APPOINTMENT DETAILS:
+Date: ${new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+Time: ${selectedTime}
+Professional: ${professional === 'any' ? 'Any available professional' : professional}
 
-👤 CLIENT DETAILS:
-📞 Name: ${clientName}
-📱 Phone: ${clientPhone}
-🎯 Booking for: ${bookingFor.charAt(0).toUpperCase() + bookingFor.slice(1)}
-
-📅 APPOINTMENT DETAILS:
-📆 Date: ${new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-⏰ Time: ${selectedTime}
-👩‍💼 Professional: ${professional === 'any' ? 'Any available professional' : professional}
-
-📝 SPECIAL NOTES:
+SPECIAL NOTES:
 ${notes}
 
-🕐 Booked at: ${bookingTime}
+Booked at: ${bookingTime}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚠️ ACTION REQUIRED:
-Please confirm this booking with the client ASAP
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Please confirm this booking with the client.
 
-🏢 Sophy's Glam Hub
-📍 Comet Mall, 1st Floor
-    Monrovia Street, Nairobi
-📞 +254711862041
-📧 sophyglamhub@gmail.com
+Sophy's Glam Hub Comet Mall, 1st Floor Monrovia Street, Nairobi
+Phone: +254711862041
+Email: sophyglamhub@gmail.com
 
-Thank you! 🌟`;
+Thank you!`;
 
-// ...existing code...
                     // Create WhatsApp link
                     const whatsappURL = `https://wa.me/+254711862041?text=${encodeURIComponent(whatsappMessage)}`;
                     
