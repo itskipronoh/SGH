@@ -1282,3 +1282,46 @@ h1, h2, h3, h4, h5, h6 {
     aspect-ratio: 1;
 }
 /*** Instagram Showcase End ***/
+
+/*** Mobile Responsiveness for Images ***/
+@media (max-width: 768px) {
+    /* Carousel images responsive on mobile */
+    .carousel-img.img-fluid {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        max-height: none !important;
+    }
+
+    /* Override carousel-item img styles for better mobile responsiveness */
+    .carousel-item img {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        max-height: none !important;
+        object-fit: contain !important;
+    }
+
+    /* Adjust carousel-item container height on mobile */
+    .carousel-item {
+        min-height: auto !important;
+        max-height: 60vh !important;
+        height: auto !important;
+    }
+
+    /* Testimonial images responsive on mobile */
+    .testimonial-item img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+    }
+
+    /* Instagram showcase images responsive on mobile */
+    .instagram-item img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+    }
+}
+/*** Mobile Responsiveness for Images End ***/
