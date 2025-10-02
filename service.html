@@ -119,9 +119,8 @@
                             <p class="text-muted">Professional hair styling and cutting services.</p>
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="text-muted"><i class="fas fa-clock me-2"></i>1-2 hours</span>
-                                <span class="h5 text-primary mb-0">From KES 2,000</span>
                             </div>
-                            <a href="appointment.html?service=Hair%20Styling&price=From%20KES%202,000&duration=1-2%20hours" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                            <a href="appointment.html?service=Hair%20Styling&duration=1-2%20hours" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-xl-4">
@@ -133,9 +132,8 @@
                             <p class="text-muted">Professional manicure and pedicure services.</p>
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour</span>
-                                <span class="h5 text-primary mb-0">From KES 1,500</span>
                             </div>
-                            <a href="appointment.html?service=Nail%20Care&price=From%20KES%201,500&duration=1%20hour" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                            <a href="appointment.html?service=Nail%20Care&duration=1%20hour" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-xl-4">
@@ -147,9 +145,8 @@
                             <p class="text-muted">Keratin treatments and hair therapy services.</p>
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="text-muted"><i class="fas fa-clock me-2"></i>2-3 hours</span>
-                                <span class="h5 text-primary mb-0">From KES 5,000</span>
                             </div>
-                            <a href="appointment.html?service=Hair%20Treatments&price=From%20KES%205,000&duration=2-3%20hours" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                            <a href="appointment.html?service=Hair%20Treatments&duration=2-3%20hours" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -188,23 +185,22 @@
                                 <p class="text-muted">Ideal for nail biters or weak nails. Easily customizable with polish, gel, or nail art.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour 30 min</span>
-                                    <span class="h5 text-primary mb-0">KES 5,000</span>
                                 </div>
-                                <a href="appointment.html?service=Full%20Acrylics&price=KES%205,000&duration=1%20hour%2030%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Full%20Acrylics&duration=1%20hour%2030%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Show More Nail Services Button -->
                     <div class="text-center mt-4">
-                        <button class="btn btn-outline-primary rounded-pill px-4" onclick="showMoreNailServices()">
+                        <button class="btn btn-outline-primary rounded-pill px-4" onclick="showMoreNailServices()" title="Show More Nail Services">
                             <span id="nailServicesText">Show More Nail Services</span>
                             <i class="fas fa-chevron-down ms-2" id="nailServicesIcon"></i>
                         </button>
                     </div>
 
                     <!-- Additional Nail Services (Hidden by default) -->
-                    <div class="row g-4 mt-2" id="additionalNailServices" style="display: none;">
+                    <div class="row g-4 mt-2" id="hiddenNailServices" style="display: none;">
                         <!-- Gel Pedicure -->
                         <div class="col-lg-6 col-xl-4">
                             <div class="services-item bg-light border-4 border-primary rounded p-4 h-100">
@@ -215,9 +211,8 @@
                                 <p class="text-muted">A flawless, high-shine pedicure that lasts — smooth feet and chip-free gel perfection.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour</span>
-                                    <span class="h5 text-primary mb-0">KES 2,500</span>
                                 </div>
-                                <a href="appointment.html?service=Gel%20Pedicure&price=KES%202,500&duration=1%20hour" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Gel%20Pedicure&duration=1%20hour" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -231,9 +226,8 @@
                                 <p class="text-muted">A luxurious treat for your feet — our deluxe pedicure pampers, smooths, and revitalizes with lasting results.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 3,500</span>
                                 </div>
-                                <a href="appointment.html?service=Deluxe%20Pedicure&price=KES%203,500&duration=1%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Deluxe%20Pedicure&duration=1%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -247,9 +241,8 @@
                                 <p class="text-muted">Indulge in our honey soak pedicure — a sweet, nourishing treatment that softens, hydrates, and soothes tired feet.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 3,500</span>
                                 </div>
-                                <a href="appointment.html?service=Honey%20Soak%20Pedicure&price=KES%203,500&duration=1%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Honey%20Soak%20Pedicure&duration=1%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -263,9 +256,8 @@
                                 <p class="text-muted">Sculpting ombré blends soft gradients with strength for a flawless, elegant nail look.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour 30 min</span>
-                                    <span class="h5 text-primary mb-0">KES 3,500</span>
                                 </div>
-                                <a href="appointment.html?service=Sculpting%20Ombre&price=KES%203,500&duration=1%20hour%2030%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Sculpting%20Ombre&duration=1%20hour%2030%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -279,9 +271,8 @@
                                 <p class="text-muted">Our acrylic ombré nails offer a soft gradient look with lasting elegance.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour 30 min</span>
-                                    <span class="h5 text-primary mb-0">KES 4,000</span>
                                 </div>
-                                <a href="appointment.html?service=Acrylics%20Ombre&price=KES%204,000&duration=1%20hour%2030%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Acrylics%20Ombre&duration=1%20hour%2030%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -295,9 +286,8 @@
                                 <p class="text-muted">Gum gel offers strong, flexible nails with a smooth, natural-looking finish.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour</span>
-                                    <span class="h5 text-primary mb-0">KES 3,000</span>
                                 </div>
-                                <a href="appointment.html?service=Gum%20Gel&price=KES%203,000&duration=1%20hour" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Gum%20Gel&duration=1%20hour" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
                     </div>
@@ -322,9 +312,8 @@
                                 <p class="text-muted">Professional wig styling and installation service.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 500</span>
                                 </div>
-                                <a href="appointment.html?service=Wig%20Lines&price=KES%20500&duration=1%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Wig%20Lines&duration=1%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -338,9 +327,8 @@
                                 <p class="text-muted">Thorough cleansing and professional blow-dry styling.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 1,000</span>
                                 </div>
-                                <a href="appointment.html?service=Wash%20And%20Blowdry&price=KES%201,000&duration=1%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Wash%20And%20Blowdry&duration=1%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -354,9 +342,8 @@
                                 <p class="text-muted">Gentle and fun hairstyling services designed specifically for children.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 1,500</span>
                                 </div>
-                                <a href="appointment.html?service=Kids%20Lines&price=KES%201,500&duration=1%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Kids%20Lines&duration=1%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -370,9 +357,8 @@
                                 <p class="text-muted">Encouraging healthy growth and refreshing your overall look.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour 30 min</span>
-                                    <span class="h5 text-primary mb-0">KES 2,000</span>
                                 </div>
-                                <a href="appointment.html?service=Dreadlocks%20Retwist&price=KES%202,000&duration=1%20hour%2030%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Dreadlocks%20Retwist&duration=1%20hour%2030%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -386,9 +372,8 @@
                                 <p class="text-muted">Professional hair weaving for added length and volume.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 2,500</span>
                                 </div>
-                                <a href="appointment.html?service=Weaving&price=KES%202,500&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Weaving&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -403,23 +388,22 @@
                                 <p class="text-muted">Ideal for clients looking to strengthen their strands and maintain overall hair health.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour</span>
-                                    <span class="h5 text-primary mb-0">KES 2,500</span>
                                 </div>
-                                <a href="appointment.html?service=Deep%20Conditioning&price=KES%202,500&duration=1%20hour" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Deep%20Conditioning&duration=1%20hour" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Show More Hair Services Button -->
                     <div class="text-center mt-4">
-                        <button class="btn btn-outline-primary rounded-pill px-4" onclick="showMoreHairServices()">
+                        <button class="btn btn-outline-primary rounded-pill px-4" onclick="showMoreHairServices()" title="Show More Hair Services">
                             <span id="hairServicesText">Show More Hair Services</span>
                             <i class="fas fa-chevron-down ms-2" id="hairServicesIcon"></i>
                         </button>
                     </div>
 
                     <!-- Additional Hair Services (Hidden by default) -->
-                    <div class="row g-4 mt-2" id="additionalHairServices" style="display: none;">
+                    <div class="row g-4 mt-2" id="hiddenHairServices" style="display: none;">
                         <!-- Twist Outs -->
                         <div class="col-lg-6 col-xl-4">
                             <div class="services-item bg-light border-4 border-primary rounded p-4 h-100">
@@ -430,9 +414,8 @@
                                 <p class="text-muted">Beautiful textured styling for natural hair.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 2,500</span>
                                 </div>
-                                <a href="appointment.html?service=Twist%20Outs&price=KES%202,500&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Twist%20Outs&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -446,9 +429,8 @@
                                 <p class="text-muted">Protective styling that promotes hair growth and it's long lasting with minimal maintenance.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 2,500</span>
                                 </div>
-                                <a href="appointment.html?service=Trac%20And%20Saw&price=KES%202,500&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Trac%20And%20Saw&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -462,9 +444,8 @@
                                 <p class="text-muted">Gentle braiding technique for comfortable, natural-looking protective styles.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>3-4 hours</span>
-                                    <span class="h5 text-primary mb-0">KES 2,500</span>
                                 </div>
-                                <a href="appointment.html?service=Knotless%20Braids&price=KES%202,500&duration=3-4%20hours" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Knotless%20Braids&duration=3-4%20hours" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -478,9 +459,8 @@
                                 <p class="text-muted">Classic protective braiding style with intricate patterns.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 2,500</span>
                                 </div>
-                                <a href="appointment.html?service=Cornrows&price=KES%202,500&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Cornrows&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -494,9 +474,8 @@
                                 <p class="text-muted">Natural curl enhancement technique for defined, bouncy curls.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>1 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 3,000</span>
                                 </div>
-                                <a href="appointment.html?service=Finger%20Coils&price=KES%203,000&duration=1%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Finger%20Coils&duration=1%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -510,9 +489,8 @@
                                 <p class="text-muted">Elegant, voluminous curls with European-inspired styling.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 3,000</span>
                                 </div>
-                                <a href="appointment.html?service=Italian%20Curls&price=KES%203,000&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Italian%20Curls&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -526,9 +504,8 @@
                                 <p class="text-muted">Thick, chunky braids that create a bold, goddess-like appearance.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hours</span>
-                                    <span class="h5 text-primary mb-0">KES 3,500</span>
                                 </div>
-                                <a href="appointment.html?service=Goddess%20Braids&price=KES%203,500&duration=2%20hours" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Goddess%20Braids&duration=2%20hours" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -542,9 +519,8 @@
                                 <p class="text-muted">A mix of braids and curls for a unique, feminine look. Great for festivals, vacations or everyday glam.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hours</span>
-                                    <span class="h5 text-primary mb-0">KES 3,500</span>
                                 </div>
-                                <a href="appointment.html?service=Boho%20Braids&price=KES%203,500&duration=2%20hours" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Boho%20Braids&duration=2%20hours" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -559,9 +535,8 @@
                                 <p class="text-muted">Ultra-smooth, silky straight hair with heat styling.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">From KES 5,000</span>
                                 </div>
-                                <a href="appointment.html?service=Silk%20Press&price=From%20KES%205,000&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Silk%20Press&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -575,9 +550,8 @@
                                 <p class="text-muted">Great for promoting natural hair growth.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>5 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 5,000</span>
                                 </div>
-                                <a href="appointment.html?service=Fresh%20Locs%20Installation&price=KES%205,000&duration=5%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Fresh%20Locs%20Installation&duration=5%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -591,9 +565,8 @@
                                 <p class="text-muted">Traditional African-inspired twist styling.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 5,000</span>
                                 </div>
-                                <a href="appointment.html?service=Nubian%20Twists&price=KES%205,000&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Nubian%20Twists&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -607,9 +580,8 @@
                                 <p class="text-muted">Depending on the colour selection, your hair length and density.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">From KES 5,000</span>
                                 </div>
-                                <a href="appointment.html?service=Hair%20Colouring%20(Full%20Head)&price=From%20KES%205,000&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Hair%20Colouring%20(Full%20Head)&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -623,9 +595,8 @@
                                 <p class="text-muted">Specialized maintenance for sisterlocs hairstyle.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>3 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 5,000</span>
                                 </div>
-                                <a href="appointment.html?service=Sisterlocs%20Retwist&price=KES%205,000&duration=3%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Sisterlocs%20Retwist&duration=3%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -639,9 +610,8 @@
                                 <p class="text-muted">Suitable for natural, transitioning or previous locked hair.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>5 hours</span>
-                                    <span class="h5 text-primary mb-0">KES 6,000</span>
                                 </div>
-                                <a href="appointment.html?service=Dreadlocks%20Crotchet&price=KES%206,000&duration=5%20hours" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Dreadlocks%20Crotchet&duration=5%20hours" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -655,9 +625,8 @@
                                 <p class="text-muted">Professional coloring service for dreadlocks.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 6,000</span>
                                 </div>
-                                <a href="appointment.html?service=Dreadlocks%20Colouring&price=KES%206,000&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Dreadlocks%20Colouring&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -671,9 +640,8 @@
                                 <p class="text-muted">Gentle relaxing treatment that maintains some natural texture.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 6,500</span>
                                 </div>
-                                <a href="appointment.html?service=Texlaxing&price=KES%206,500&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Texlaxing&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -687,9 +655,8 @@
                                 <p class="text-muted">Synthetic dreadlock installation for instant loc style.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>3 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 7,500</span>
                                 </div>
-                                <a href="appointment.html?service=Artificial%20Dreadlocks&price=KES%207,500&duration=3%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Artificial%20Dreadlocks&duration=3%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -703,9 +670,8 @@
                                 <p class="text-muted">Professional relaxer retouch with premium Mizani products.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 8,500</span>
                                 </div>
-                                <a href="appointment.html?service=Mizani%20Retouch&price=KES%208,500&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Mizani%20Retouch&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -720,9 +686,8 @@
                                 <p class="text-muted">Professional micro-link hair extension installation.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 10,000</span>
                                 </div>
-                                <a href="appointment.html?service=Microlinks&price=KES%2010,000&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Microlinks&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
 
@@ -737,9 +702,8 @@
                                 <p class="text-muted">Ultimate smoothing treatment for frizz-free, manageable hair.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><i class="fas fa-clock me-2"></i>2 hour 15 min</span>
-                                    <span class="h5 text-primary mb-0">KES 20,000</span>
                                 </div>
-                                <a href="appointment.html?service=Keratin%20Treatment&price=KES%2020,000&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
+                                <a href="appointment.html?service=Keratin%20Treatment&duration=2%20hour%2015%20min" class="btn btn-primary btn-primary-outline-0 rounded-pill w-100">Book Now</a>
                             </div>
                         </div>
                     </div>
@@ -752,8 +716,6 @@
                     <a href="appointment.html" class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-5 me-3">Book Appointment</a>
                     <a href="gallery.html" class="btn btn-outline-primary rounded-pill py-3 px-5">View Gallery</a>
                 </div>
-            </div>
-        </div>
             </div>
         </div>
         <!-- Services End -->
@@ -856,10 +818,10 @@
     <!-- Custom JavaScript for Services -->
     <script>
         function showMoreNailServices() {
-            const additionalServices = document.getElementById('additionalNailServices');
+            const additionalServices = document.getElementById('hiddenNailServices');
             const buttonText = document.getElementById('nailServicesText');
             const buttonIcon = document.getElementById('nailServicesIcon');
-            
+
             if (additionalServices.style.display === 'none' || additionalServices.style.display === '') {
                 additionalServices.style.display = 'flex';
                 buttonText.textContent = 'Show Less Nail Services';
@@ -872,10 +834,10 @@
         }
 
         function showMoreHairServices() {
-            const additionalServices = document.getElementById('additionalHairServices');
+            const additionalServices = document.getElementById('hiddenHairServices');
             const buttonText = document.getElementById('hairServicesText');
             const buttonIcon = document.getElementById('hairServicesIcon');
-            
+
             if (additionalServices.style.display === 'none' || additionalServices.style.display === '') {
                 additionalServices.style.display = 'flex';
                 buttonText.textContent = 'Show Less Hair Services';
